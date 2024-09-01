@@ -1,20 +1,27 @@
-import { FC, memo, ReactNode } from "react";
-import { Button } from "@chakra-ui/react";
+import { FC, memo } from "react";
+import { Box, Image, Stack, Text } from "@chakra-ui/react";
 
 type Props = {
-  children: ReactNode;
-  isDisabled?: boolean;
-  loading?: boolean;
-  onClick: () => void;
+  imageUrl: string;
+  userName: string;
+  fullName: string;
 };
 
-export const PrimaryButton: FC<Props> = memo((props) => {
-  const { children, isDisabled = false, loading = false, onClick } = props;
+export const UserCard: FC<Props> = memo((props) => {
+  const { imageUrl, userName, fullName } = props;
   return (
     <>
-      <Button bg="teal.400" color="white" _hover={{ opacity: 0.8 }} onClick={onClick} isDisabled={isDisabled || loading} isLoading={loading}>
-        {children}
-      </Button>
+      <Box w="260px" h="260px" bg="white" borderRadius="10px" shadow="md" p={4} _hover={{ cursor: "pointer", opacity: 0.8 }}>
+        <Stack textAlign="center">
+          <Image boxSize="160px" borderRadius="full" src={imageUrl} alt={userName} m="auto" />
+          <Text fontSize="lg" fontWeight="bold">
+            {userName}
+          </Text>
+          <Text fontSize="sm" color="gray">
+            {fullName}
+          </Text>
+        </Stack>
+      </Box>
     </>
   );
 });
