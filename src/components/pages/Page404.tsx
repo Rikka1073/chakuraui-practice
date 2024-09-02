@@ -1,5 +1,11 @@
 import { memo } from "react";
+import { HeaderLayout } from "../templates/HeaderLayout";
 
 export const Page404 = memo(() => {
-  return <p>404ページです</p>;
+  return (
+    <>
+      <HeaderLayout children />
+      <p>404ページです</p>
+    </>
+  );
 });
