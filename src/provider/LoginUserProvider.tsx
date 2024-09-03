@@ -5,7 +5,7 @@ import { ReactNode } from "react";
 type LoginUser = User & { isAdmin: boolean };
 
 export type LoginUserContextType = {
-  loginUser: User | null;
+  loginUser: LoginUser | null;
   setLoginUser: Dispatch<SetStateAction<LoginUser | null>>;
 };
 
